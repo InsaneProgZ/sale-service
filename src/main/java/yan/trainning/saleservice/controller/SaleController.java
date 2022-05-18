@@ -24,6 +24,10 @@ public class SaleController {
     Sale createSale (@RequestBody Sale sale) {
         return saleService.registerSalve(sale);
     }
+    @PostMapping("/valid")
+    void validExists (@RequestBody Sale sale) {
+        saleService.updateItem(sale.getId());
+    }
 
     @GetMapping("/{id}")
     Sale findSaleId (@PathVariable String id){

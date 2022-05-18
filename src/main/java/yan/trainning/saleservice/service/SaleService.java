@@ -17,6 +17,12 @@ public class SaleService {
         return saleRepository.save(sale);
     }
 
+    public void updateItem (String saleId) {
+        Sale sale= saleRepository.findById(saleId).orElseThrow();
+        sale.setValue(sale.getValue()-1);
+        saleRepository.save(sale);
+    }
+
     public Sale findId (String id) {
         return saleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("não existe"));
     }
