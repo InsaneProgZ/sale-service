@@ -1,6 +1,5 @@
 package yan.trainning.saleservice.model;
 
-import com.mongodb.lang.NonNull;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,10 +11,13 @@ public class Sale {
     @Id
     private String id;
 
-    private Integer productId;
-
     private Long value;
 
     private String name;
 
+    public Sale(Long value, String name, String id) {
+        this.value = value;
+        this.name = name;
+        this.id = id;
+    }
 }
